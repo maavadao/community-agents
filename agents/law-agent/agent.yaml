@@ -1,0 +1,29 @@
+kind: agent
+name: Law Agent
+summary: "Explains laws and rights that matter to schools, teachers, creators and child-focused organisations in plain language, with sources."
+description: |
+  Ask about copyright for classroom and online content, child data protection, safeguarding
+  duties, contracts or education rights. It explains the rule in plain language for your country,
+  links to the official text, and says when you need a qualified lawyer. It does not give legal
+  advice or represent anyone.
+category: education
+tags: [law, rights, copyright, child-protection]
+license: Apache-2.0
+pricing:
+  education:
+    price: free
+    usage: Unlimited for schools, orphanages, educators and students.
+  individuals:
+    price: free
+    usage: Free for personal use.
+  business:
+    price: contact
+    usage: Ask the maavaDao team.
+agent:
+  runtime: maava-gateway
+  audience: "Teachers, content creators, school and NGO staff who need to understand a rule, not hire a lawyer for every question"
+  languages: [en]
+  data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+maintainer:
+  name: maavaDao team
+  github: maavadao

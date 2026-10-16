@@ -1,7 +1,7 @@
 # Copy this folder to agents/<your-agent>/ (lowercase letters, digits and hyphens).
 kind: agent
 name: Reading Buddy
-summary: Helps young pupils practise reading aloud, with gentle feedback in their own language.
+summary: "Helps young pupils practise reading aloud, with gentle feedback in their own language."
 category: education
 tags: [literacy, primary]
 license: Apache-2.0
@@ -16,7 +16,7 @@ pricing:
     usage: Ask the developer.
 agent:
   runtime: maava-gateway   # or maava-core, or other
-  audience: Primary pupils learning to read (ages 6–9)
+  audience: "Primary pupils learning to read (ages 6–9)"
   languages: [en, sw]
   data_collected: none
 maintainer:

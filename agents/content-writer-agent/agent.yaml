@@ -1,0 +1,29 @@
+kind: agent
+name: Content Writer Agent
+summary: "Turns an approved outline into a first draft: article, video script, lesson text or social post, in the creator's voice."
+description: |
+  Takes an outline and sources (from the Content Research Agent or the creator's own) and writes a
+  draft at the right reading level. It keeps the creator's wording where they supply it, adds a
+  citation for every factual claim, and flags places where the creator should add their own
+  experience.
+category: content
+tags: [writing, scripts, lessons, content-creation]
+license: Apache-2.0
+pricing:
+  education:
+    price: free
+    usage: Unlimited for schools, orphanages, educators and students.
+  individuals:
+    price: free
+    usage: Free for personal use.
+  business:
+    price: contact
+    usage: Ask the maavaDao team.
+agent:
+  runtime: maava-gateway
+  audience: "Content creators, teachers and students writing for a real audience"
+  languages: [en]
+  data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+maintainer:
+  name: maavaDao team
+  github: maavadao

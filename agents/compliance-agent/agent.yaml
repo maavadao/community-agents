@@ -1,0 +1,28 @@
+kind: agent
+name: Compliance Agent
+summary: "Checks school and NGO policies, forms and materials against safeguarding and data-protection checklists, and flags gaps in plain language."
+description: |
+  Upload a policy, consent form or lesson material and the Compliance Agent reads it against
+  common safeguarding, child data-protection and accessibility checklists. It returns a short list
+  of gaps with suggested wording. It does not give legal advice.
+category: education
+tags: [compliance, safeguarding, policy, data-protection]
+license: Apache-2.0
+pricing:
+  education:
+    price: free
+    usage: Unlimited for schools, orphanages, educators and students.
+  individuals:
+    price: free
+    usage: Free for personal use.
+  business:
+    price: contact
+    usage: Ask the maavaDao team.
+agent:
+  runtime: maava-gateway
+  audience: "School administrators, teachers and non-profit staff reviewing policies"
+  languages: [en]
+  data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+maintainer:
+  name: maavaDao team
+  github: maavadao

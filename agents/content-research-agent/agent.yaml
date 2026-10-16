@@ -1,0 +1,28 @@
+kind: agent
+name: Content Research Agent
+summary: "Plans content: finds and summarises trustworthy sources, suggests angles, and builds an outline with citations."
+description: |
+  Given a topic and an audience, it finds sources, summarises what each says in its own words,
+  notes where sources disagree, suggests three angles, and returns an outline with a numbered
+  source list. It always shows where a claim came from and says when it could not find support.
+category: content
+tags: [research, planning, citations, content-creation]
+license: Apache-2.0
+pricing:
+  education:
+    price: free
+    usage: Unlimited for schools, orphanages, educators and students.
+  individuals:
+    price: free
+    usage: Free for personal use.
+  business:
+    price: contact
+    usage: Ask the maavaDao team.
+agent:
+  runtime: maava-gateway
+  audience: "Content creators, teachers and students planning an article, video, lesson or report"
+  languages: [en]
+  data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+maintainer:
+  name: maavaDao team
+  github: maavadao
