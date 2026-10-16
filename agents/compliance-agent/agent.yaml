@@ -23,6 +23,7 @@ agent:
   audience: "School administrators, teachers and non-profit staff reviewing policies"
   languages: [en]
   data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+  entrypoint: src/main.py
 maintainer:
   name: maavaDao team
   github: maavadao

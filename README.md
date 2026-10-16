@@ -39,6 +39,9 @@ the hour, with no change to the website's code.
 
 ## Contribute
 
+New here? Start with the [getting started guide](docs/getting-started.md). The
+[`sdk/`](sdk) folder holds `maava-agent-sdk`, a small Python library for talking to a maava gateway.
+
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
 2. Copy [`agents/_template`](agents/_template) to `agents/<your-agent>/`.
 3. Build it, fill in `agent.yaml`, and open a pull request.

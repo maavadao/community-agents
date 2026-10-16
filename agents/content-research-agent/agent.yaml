@@ -23,6 +23,7 @@ agent:
   audience: "Content creators, teachers and students planning an article, video, lesson or report"
   languages: [en]
   data_collected: Content you provide is processed to answer you and is not kept after the session. No accounts or analytics.
+  entrypoint: src/main.py
 maintainer:
   name: maavaDao team
   github: maavadao

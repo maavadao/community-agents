@@ -1,1 +1,1 @@
-# Add your agent's dependencies here, one per line, with versions.
+maava-agent-sdk @ git+https://github.com/maavadao/community-agents#subdirectory=sdk

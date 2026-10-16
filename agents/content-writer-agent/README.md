@@ -6,10 +6,19 @@ Stage 2 of 3 in the content lifecycle (research and plan → create → review a
 
 Takes an outline and sources (from the Content Research Agent or the creator's own) and writes a draft at the right reading level. It keeps the creator's wording where they supply it, adds a citation for every factual claim, and flags places where the creator should add their own experience.
 
-## How it works
+## Run it
 
-Its instructions are in [`instructions.md`](instructions.md). This first version is a written
-brief for the maava gateway; code (tools, integrations) will be added as the agents grow.
+Needs a running [maava gateway](https://github.com/maavadao/maava-gateway) with its chat endpoint
+enabled. See the [getting started guide](../../docs/getting-started.md).
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env   # then set MAAVA_GATEWAY_TOKEN
+export $(grep -v '^#' .env | xargs)
+python src/main.py "your request"
+```
+
+Its brief is in [`instructions.md`](instructions.md).
 
 ## Data
 
