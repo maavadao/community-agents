@@ -25,6 +25,18 @@ Each agent lives in its own folder under [`agents/`](agents), with its code, a R
 maavaDao team. Once they are in place, we invite developers and contributors to improve them and
 to add agents of their own.
 
+## The index
+
+On every merge to `main`, a GitHub Action validates the agents, runs `scripts/build_index.py` and
+publishes `index.json` on GitHub Pages:
+
+```
+https://maavadao.github.io/community-agents/index.json
+```
+
+[maavadao.com](https://maavadao.com) reads it, so a merged agent shows up on the website within
+the hour, with no change to the website's code.
+
 ## Contribute
 
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
