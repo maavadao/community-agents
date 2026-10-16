@@ -5,7 +5,7 @@ description: |
   Given a topic and an audience, it finds sources, summarises what each says in its own words,
   notes where sources disagree, suggests three angles, and returns an outline with a numbered
   source list. It always shows where a claim came from and says when it could not find support.
-category: content
+category: documents
 tags: [research, planning, citations, content-creation]
 license: Apache-2.0
 pricing:

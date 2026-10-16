@@ -6,7 +6,7 @@ description: |
   text, language suits the audience's age, headings and alt text for accessibility, and no private
   information. It returns a pass/fix list and, once fixed, a publish-ready version with title,
   description and tags.
-category: content
+category: documents
 tags: [review, fact-checking, accessibility, publishing, content-creation]
 license: Apache-2.0
 pricing:

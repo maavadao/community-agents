@@ -9,6 +9,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+# Keep in step with the categories in marketplace-registry's schema/listing.schema.json.
+CATEGORIES = [
+    "agents", "llm-apps", "coding", "local-llms", "chat", "image", "video", "speech", "documents", "search",
+    "vector-databases", "ml-platforms", "robotics", "browser-automation", "no-code", "learning", "mcp-servers",
+    "education", "other",
+]
 REQUIRED = ["kind", "name", "summary", "category", "license", "pricing", "agent", "maintainer"]
 
 
@@ -31,6 +37,8 @@ def check(folder: Path) -> list[str]:
     for key in REQUIRED:
         if key not in data:
             problems.append(f"{rel}/agent.yaml: missing '{key}'")
+    if data.get("category") not in CATEGORIES:
+        problems.append(f"{rel}/agent.yaml: category must be one of {', '.join(CATEGORIES)}")
     if data.get("kind") != "agent":
         problems.append(f"{rel}/agent.yaml: kind must be 'agent'")
     if (data.get("pricing") or {}).get("education", {}).get("price") != "free":
