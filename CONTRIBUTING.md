@@ -23,6 +23,23 @@
 6. After the community safety review passes, a maintainer adds the listing to the marketplace
    registry.
 
+## What goes in an agent folder
+
+```
+agents/<name>/
+├── agent.yaml          required: listing details (see the template)
+├── README.md           required: what it does, how to run it, env vars, data
+├── instructions.md     the agent's written brief (optional if the code holds it)
+├── src/main.py         the code, if the agent has any (agent.entrypoint)
+├── requirements.txt    required when there is code; pin versions
+├── tests/              tests for the code
+└── .env.example        names of the environment variables, never real values
+```
+
+An agent can be only instructions, or Python code, or both. CI checks the folder layout,
+compiles the entry point and rejects committed `.env` files. Run `python scripts/validate.py`
+before you open a pull request.
+
 ## Improve an existing agent
 
 Open an issue describing the change, then a pull request. Small fixes can skip the issue.

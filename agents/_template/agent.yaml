@@ -19,6 +19,7 @@ agent:
   audience: "Primary pupils learning to read (ages 6–9)"
   languages: [en, sw]
   data_collected: none
+  entrypoint: src/main.py   # optional; omit for agents that are only instructions
 maintainer:
   name: Your Name
   github: your-github-username

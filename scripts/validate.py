@@ -37,6 +37,21 @@ def check(folder: Path) -> list[str]:
         problems.append(f"{rel}/agent.yaml: agents must be free for education")
     if "safety" in data:
         problems.append(f"{rel}/agent.yaml: don't add a 'safety' section; reviewers set it")
+    entry = (data.get("agent") or {}).get("entrypoint")
+    if entry:
+        path = folder / entry
+        if not path.is_file():
+            problems.append(f"{rel}/agent.yaml: entrypoint '{entry}' does not exist")
+        else:
+            try:
+                compile(path.read_text(), str(path), "exec")
+            except SyntaxError as exc:
+                problems.append(f"{rel}/{entry}: syntax error ({exc.msg}, line {exc.lineno})")
+        if not (folder / "requirements.txt").is_file():
+            problems.append(f"{rel}: agents with code need a requirements.txt")
+    for secret in folder.rglob(".env*"):
+        if secret.name != ".env.example":
+            problems.append(f"{secret.relative_to(ROOT)}: don't commit .env files; use .env.example")
     if not (data.get("agent") or {}).get("data_collected"):
         problems.append(f"{rel}/agent.yaml: agent.data_collected must say what is collected (or 'none')")
     return problems
