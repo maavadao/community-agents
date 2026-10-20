@@ -1,0 +1,31 @@
+kind: agent
+name: Planting Advisor
+summary: "Tells smallholder farmers and gardeners when to sow, water and protect a crop, from real weather for their place."
+description: |
+  Rains no longer arrive when they used to, and a wrong sowing date can lose a whole season.
+  Name your town (or give coordinates) and your crop. Planting Advisor reads the last 30 days of
+  weather and the next 16 for that exact place, checks soil temperature, rain, evaporation, frost,
+  heat and dry spells, and gives a plain plan: when to sow, when to water and what to protect
+  against. It works for any crop and any country, and needs no account.
+category: other
+tags: [farming, agriculture, weather, food, climate]
+license: Apache-2.0
+pricing:
+  education:
+    price: free
+    usage: Unlimited for schools, orphanages, educators and students.
+  individuals:
+    price: free
+    usage: Free for farmers, growers and gardeners.
+  business:
+    price: contact
+    usage: Ask the maavaDao team.
+agent:
+  runtime: maava-gateway
+  audience: "Smallholder farmers, school and community gardens, and home growers without access to an agronomist"
+  languages: [en]
+  data_collected: The place you name is sent to Open-Meteo to find its weather. Nothing else is collected, and nothing is kept after the session.
+  entrypoint: src/main.py
+maintainer:
+  name: maavaDao team
+  github: maavadao
