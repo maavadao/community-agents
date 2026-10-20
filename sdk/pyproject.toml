@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "maava-agent-sdk"
 version = "0.1.0"
-description = "Build maavaDao community agents in Python: talk to a maava gateway in a few lines."
+description = "Build maava agents in Python: talk to a maava gateway in a few lines."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.10"

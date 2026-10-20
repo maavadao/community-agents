@@ -27,7 +27,7 @@ You need Python 3.10 or newer and a running maava gateway
 ```
 
 ```bash
-git clone https://github.com/maavadao/community-agents && cd community-agents
+git clone https://github.com/maavadao/maava-agents && cd maava-agents
 python -m venv .venv && source .venv/bin/activate
 pip install -e sdk pytest pyyaml
 export MAAVA_GATEWAY_URL=http://127.0.0.1:18789
@@ -89,7 +89,7 @@ scripts/test_agents.sh          # every agent's tests and the SDK's
 ## 7. Share it
 
 Open a pull request. CI runs the same checks. After a maintainer's review and the community safety
-review, your agent is published to the [index](https://maavadao.github.io/community-agents/index.json)
+review, your agent is published to the [index](https://maavadao.github.io/maava-agents/index.json)
 and appears on maavadao.com.
 
 ## Questions

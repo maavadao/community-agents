@@ -12,7 +12,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-REPO = "https://github.com/maavadao/community-agents"
+REPO = "https://github.com/maavadao/maava-agents"
 
 
 def added_date(folder: Path) -> str:

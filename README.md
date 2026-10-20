@@ -1,4 +1,4 @@
-# maavaDao community agents
+# maava agents
 
 The open-source code for agents built by and for the maavaDao community. Every agent here is
 free for education, free to read, and free to improve.
@@ -12,8 +12,9 @@ to maava to educate deserving children, orphans and street children.
 
 | Repo | Purpose |
 | --- | --- |
-| **community-agents** (this repo) | The **code** of agents the community builds together |
+| **maava-agents** (this repo) | The **code** of agents the community builds together, shown on [maavadao.com/agents](https://maavadao.com/agents) |
 | [marketplace-registry](https://github.com/maavadao/marketplace-registry) | The **list** of tools and agents shown on [maavadao.com/marketplace](https://maavadao.com/marketplace). Anyone can list a product they built elsewhere |
+| [open-source-ai-repos](https://github.com/maavadao/open-source-ai-repos) | A directory of open-source AI repos and the developers behind them, on [maavadao.com/repos](https://maavadao.com/repos) and [maavadao.com/developers](https://maavadao.com/developers) |
 | [maava](https://github.com/maavadao/maava) | The platform that runs agents |
 
 An agent here is also listed in the registry, with `links.repository` pointing at its folder.
@@ -31,10 +32,10 @@ On every merge to `main`, a GitHub Action validates the agents, runs `scripts/bu
 publishes `index.json` on GitHub Pages:
 
 ```
-https://maavadao.github.io/community-agents/index.json
+https://maavadao.github.io/maava-agents/index.json
 ```
 
-[maavadao.com](https://maavadao.com) reads it, so a merged agent shows up on the website within
+[maavadao.com/agents](https://maavadao.com/agents) reads it, so a merged agent shows up on the website within
 the hour, with no change to the website's code.
 
 ## Contribute

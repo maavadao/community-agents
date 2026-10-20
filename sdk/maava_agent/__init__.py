@@ -1,4 +1,4 @@
-"""maava-agent-sdk: build maavaDao community agents in Python."""
+"""maava-agent-sdk: build maava agents in Python."""
 from .agent import Agent
 from .client import Gateway, GatewayError
 
