@@ -52,6 +52,6 @@ the maavaDao team may find a new one.
 
 ## Revenue
 
-When an agent earns money, 60% goes to the community who built it and 40% funds maava's
-education work. How the community share is divided between contributors is decided through
+You get rewarded for your work, and help children in need. When an agent earns money, 60%
+rewards the community who built it and 40% funds maava's education work for children in need. How the community share is divided between contributors is decided through
 maavaDao governance.
