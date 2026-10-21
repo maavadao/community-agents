@@ -18,7 +18,7 @@ from maava_agent import Agent
 
 agent = Agent.from_folder(Path(__file__).resolve().parent.parent)
 
-USER_AGENT = "maavaDao-claim-checker/0.1 (https://github.com/maavadao/maava-agents)"
+USER_AGENT = "maavaDao-claim-checker/0.1 (https://github.com/maavadao/maava-Community-Agents)"
 RESULTS_PER_SEARCH = 3
 MAX_PARTS = 5
 EXTRACT_CHARS = 1500

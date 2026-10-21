@@ -1,6 +1,6 @@
 # maava-agent-sdk
 
-A tiny Python library for building maava agents. No third-party dependencies.
+A tiny Python library for building maava Community Agents. No third-party dependencies.
 
 ```python
 from maava_agent import Agent
@@ -30,7 +30,7 @@ The gateway's chat endpoint is off by default. Turn it on with
 ## Install
 
 ```bash
-pip install "maava-agent-sdk @ git+https://github.com/maavadao/maava-agents#subdirectory=sdk"
+pip install "maava-agent-sdk @ git+https://github.com/maavadao/maava-Community-Agents#subdirectory=sdk"
 ```
 
 Version 0.1.0 is a first draft; the API may change.

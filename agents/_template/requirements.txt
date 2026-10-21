@@ -1,1 +1,1 @@
-maava-agent-sdk @ git+https://github.com/maavadao/maava-agents#subdirectory=sdk
+maava-agent-sdk @ git+https://github.com/maavadao/maava-Community-Agents#subdirectory=sdk

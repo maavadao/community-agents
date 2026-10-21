@@ -1,18 +1,32 @@
-# maava agents
+# maava Community Agents
 
-The open-source code for agents built by and for the maavaDao community. Every agent here is
-free for education, free to read, and free to improve.
+maava Community Agents is a fully open-source suite of AI agents for sales, marketing and growth,
+built on top of open-source AI libraries that anyone can inspect, fork and improve.
 
-maavaDao brings together agentic AI and blockchain technologies to create an open,
-community-owned ecosystem for education. There are no listing fees, no creation fees and no
-commissions. When a product earns money, 60% rewards the contributors who built it and 40% helps
-children in need: deserving children, orphans and street children, through maava's schools.
+**We're not building from scratch.** We're standing on the shoulders of the most proven,
+community-validated open-source agent repositories on GitHub: thousands of stars, hundreds of
+contributors, battle-tested prompts and workflows. We take what the community has already built,
+refined and stress-tested, and make it work for you.
+
+**We customise every open-source agent for your specific use case.** No generic templates. No
+one-size-fits-all prompts. Each agent is tailored to your industry, your pipeline, your voice and
+your revenue targets, so it doesn't just work, it works for you.
+
+Developers contribute new agents, prompts and workflows. Businesses deploy customised agents to
+run real revenue operations: prospecting, closing, retention and beyond. When a business puts a
+maava agent to work and it earns, a share of that revenue flows back to the ecosystem:
+
+- **Maava Charity:** funding the mission (40%)
+- **The developer community:** rewarding the people who built it (60%)
+
+No middlemen. No SaaS lock-in. Just open code, real revenue, and a circular economy where the
+people who build get paid, and the proceeds do good.
 
 ## How this repo fits with the others
 
 | Repo | Purpose |
 | --- | --- |
-| **maava-agents** (this repo) | The **code** of agents the community builds together, shown on [maavadao.com/agents](https://maavadao.com/agents) |
+| **maava-Community-Agents** (this repo) | The **code** of agents the community builds together, shown on [maavadao.com/agents](https://maavadao.com/agents) |
 | [marketplace-registry](https://github.com/maavadao/marketplace-registry) | The **list** of tools and agents shown on [maavadao.com/marketplace](https://maavadao.com/marketplace). Anyone can list a product they built elsewhere |
 | [open-source-ai-repos](https://github.com/maavadao/open-source-ai-repos) | A directory of open-source AI repos and the developers behind them, on [maavadao.com/repos](https://maavadao.com/repos) and [maavadao.com/developers](https://maavadao.com/developers) |
 | [maava](https://github.com/maavadao/maava) | The platform that runs agents |
@@ -32,7 +46,7 @@ On every merge to `main`, a GitHub Action validates the agents, runs `scripts/bu
 publishes `index.json` on GitHub Pages:
 
 ```
-https://maavadao.github.io/maava-agents/index.json
+https://maavadao.github.io/maava-Community-Agents/index.json
 ```
 
 [maavadao.com/agents](https://maavadao.com/agents) reads it, so a merged agent shows up on the website within
