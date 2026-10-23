@@ -4,7 +4,7 @@ About fifteen minutes from a fresh clone to an agent answering you.
 
 ## 1. What an agent is, here
 
-An agent in this repo is a folder with:
+An agent is a repository (included in this index as a submodule under `agents/`) with:
 
 - a **brief** (`instructions.md`): what it does, step by step, and what it must never do;
 - optional **Python code** (`src/main.py`): anything the brief alone can't do;
@@ -27,7 +27,7 @@ You need Python 3.10 or newer and a running maava gateway
 ```
 
 ```bash
-git clone https://github.com/maavadao/maava-Community-Agents && cd maava-Community-Agents
+git clone --recurse-submodules https://github.com/maavadao/maava-Community-Agents && cd maava-Community-Agents
 python -m venv .venv && source .venv/bin/activate
 pip install -e sdk pytest pyyaml
 export MAAVA_GATEWAY_URL=http://127.0.0.1:18789
@@ -45,8 +45,11 @@ Read `instructions.md` next to it. That file is the whole agent.
 
 ## 4. Make your own
 
+Create a new repository for your agent and copy the template into it:
+
 ```bash
-cp -r agents/_template agents/my-agent
+git clone https://github.com/<you>/my-agent ../my-agent
+cp -r template/. ../my-agent/ && cd ../my-agent
 ```
 
 1. Write `instructions.md`.
@@ -81,17 +84,21 @@ Keep dependencies few, pin them in `requirements.txt`, and put variable names (n
 
 ## 6. Check it
 
+Push your agent's repository, then add it to your fork of this index:
+
 ```bash
-python scripts/validate.py      # layout, listing fields, free for education
-scripts/test_agents.sh          # every agent's tests and the SDK's
+git submodule add https://github.com/<you>/my-agent.git agents/my-agent
+python scripts/validate.py agents/my-agent   # layout, listing fields, free for education
+scripts/test_agents.sh                       # every agent's tests and the SDK's
+python scripts/build_readme.py               # adds it to the README's table
 ```
 
 ## 7. Share it
 
-Open a pull request. CI runs the same checks. After a maintainer's review and the community safety
-review, your agent is published to the [index](https://maavadao.github.io/maava-Community-Agents/index.json)
+Open a pull request here that adds the submodule. CI runs the same checks. After a maintainer's
+review and the community safety review, your agent is published to the [index](https://maavadao.github.io/maava-Community-Agents/index.json)
 and appears on maavadao.com.
 
 ## Questions
 
-Open an issue in this repository.
+Open an issue in the agent's repository, or in this one for anything else.

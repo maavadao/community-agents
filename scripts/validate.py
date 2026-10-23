@@ -1,4 +1,8 @@
-"""Check every agent folder has the files and fields it needs. Exits non-zero on any problem."""
+"""Check every agent has the files and fields it needs. Exits non-zero on any problem.
+
+    python scripts/validate.py                      # every agent and the template
+    python scripts/validate.py agents/law-agent     # only these folders
+"""
 from __future__ import annotations
 
 import re
@@ -7,7 +11,8 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parent.parent
+from agents import ROOT, agents
+
 SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 # Keep in step with the categories in marketplace-registry's schema/listing.schema.json.
 CATEGORIES = [
@@ -21,7 +26,7 @@ REQUIRED = ["kind", "name", "summary", "category", "license", "pricing", "agent"
 def check(folder: Path) -> list[str]:
     rel = folder.relative_to(ROOT)
     problems = []
-    if not folder.name.startswith("_") and not SLUG_RE.match(folder.name):
+    if folder.parent.name == "agents" and not SLUG_RE.match(folder.name):
         problems.append(f"{rel}: folder name must be lowercase letters, digits and hyphens")
     if not (folder / "README.md").is_file():
         problems.append(f"{rel}: missing README.md")
@@ -65,19 +70,32 @@ def check(folder: Path) -> list[str]:
     return problems
 
 
-def main() -> int:
-    folders = sorted(p for p in (ROOT / "agents").iterdir() if p.is_dir() and not p.name.startswith("_"))
-    problems = [p for f in folders for p in check(f)]
-    problems += check_template()
+def check_index() -> list[str]:
+    """agents/ holds only submodules, and every submodule is checked out."""
+    problems = []
+    slugs = {a.slug for a in agents()}
+    for p in sorted((ROOT / "agents").iterdir()):
+        if p.is_dir() and p.name not in slugs:
+            problems.append(f"agents/{p.name}: agents live in their own repo; add it as a submodule (see CONTRIBUTING.md)")
+    for a in agents():
+        if not (a.path / ".git").exists():
+            problems.append(f"agents/{a.slug}: submodule not checked out; run git submodule update --init")
+    return problems
+
+
+def main(args: list[str]) -> int:
+    if args:
+        folders = [ROOT / a for a in args]
+        problems = []
+    else:
+        folders = [a.path for a in agents() if (a.path / ".git").exists()] + [ROOT / "template"]
+        problems = check_index()
+    problems += [p for f in folders for p in check(f)]
     for p in problems:
         print(p)
-    print(f"{len(folders)} agents checked, {len(problems)} problem(s)")
+    print(f"{len(folders)} folder(s) checked, {len(problems)} problem(s)")
     return 1 if problems else 0
 
 
-def check_template() -> list[str]:
-    return check(ROOT / "agents" / "_template") if (ROOT / "agents" / "_template").is_dir() else []
-
-
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

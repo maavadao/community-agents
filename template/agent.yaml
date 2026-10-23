@@ -1,4 +1,4 @@
-# Copy this folder to agents/<your-agent>/ (lowercase letters, digits and hyphens).
+# Copy this folder into your agent's own repository. See CONTRIBUTING.md.
 kind: agent
 name: Reading Buddy
 summary: "Helps young pupils practise reading aloud, with gentle feedback in their own language."

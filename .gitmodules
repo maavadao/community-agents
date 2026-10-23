@@ -1,0 +1,24 @@
+[submodule "agents/claim-checker"]
+	path = agents/claim-checker
+	url = https://github.com/maavadao/community-agent-claim-checker.git
+[submodule "agents/compliance-agent"]
+	path = agents/compliance-agent
+	url = https://github.com/maavadao/community-agent-compliance-agent.git
+[submodule "agents/content-research-agent"]
+	path = agents/content-research-agent
+	url = https://github.com/maavadao/community-agent-content-research-agent.git
+[submodule "agents/content-review-agent"]
+	path = agents/content-review-agent
+	url = https://github.com/maavadao/community-agent-content-review-agent.git
+[submodule "agents/content-writer-agent"]
+	path = agents/content-writer-agent
+	url = https://github.com/maavadao/community-agent-content-writer-agent.git
+[submodule "agents/dependency-doctor"]
+	path = agents/dependency-doctor
+	url = https://github.com/maavadao/community-agent-dependency-doctor.git
+[submodule "agents/law-agent"]
+	path = agents/law-agent
+	url = https://github.com/maavadao/community-agent-law-agent.git
+[submodule "agents/planting-advisor"]
+	path = agents/planting-advisor
+	url = https://github.com/maavadao/community-agent-planting-advisor.git

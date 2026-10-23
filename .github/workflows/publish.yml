@@ -3,7 +3,7 @@ name: Publish index
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch:  # also started by update-agents.yml, whose pushes don't trigger workflows
 
 permissions:
   contents: read
@@ -20,7 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # the index reads each agent's first commit date
+          fetch-depth: 0  # the index reads when each agent was added
+          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

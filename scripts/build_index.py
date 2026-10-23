@@ -1,4 +1,4 @@
-"""Build dist/index.json from every agents/<name>/agent.yaml.
+"""Build dist/index.json from every agent's agent.yaml.
 
 The shape matches marketplace-registry's index, so the website reads both the same way.
 """
@@ -6,33 +6,29 @@ from __future__ import annotations
 
 import datetime as dt
 import json
-import subprocess
-from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parent.parent
-REPO = "https://github.com/maavadao/maava-Community-Agents"
+from agents import ROOT, agents, git
 
 
-def added_date(folder: Path) -> str:
-    """The date the agent's folder first appeared in git history."""
-    out = subprocess.run(
-        ["git", "log", "--diff-filter=A", "--format=%as", "--", str(folder)],
-        cwd=ROOT, capture_output=True, text=True,
-    ).stdout.split()
+def added_date(slug: str) -> str:
+    """The date the agent first appeared in this index (as a folder, before agents had their own repos)."""
+    out = git("log", "--diff-filter=A", "--format=%as", "--", f"agents/{slug}").split()
     return out[-1] if out else dt.date.today().isoformat()
 
 
 def main() -> None:
     listings = []
-    for folder in sorted(p for p in (ROOT / "agents").iterdir() if p.is_dir() and not p.name.startswith("_")):
-        data = yaml.safe_load((folder / "agent.yaml").read_text())
-        data["slug"] = folder.name
-        data.setdefault("links", {})["repository"] = f"{REPO}/tree/main/agents/{folder.name}"
-        data.setdefault("added", added_date(folder))
+    for a in agents():
+        data = yaml.safe_load((a.path / "agent.yaml").read_text())
+        data["slug"] = a.slug
+        data.setdefault("links", {})["repository"] = a.repo
+        data.setdefault("added", added_date(a.slug))
         if isinstance(data["added"], dt.date):
             data["added"] = data["added"].isoformat()
+        data["commit"] = git("rev-parse", "HEAD", cwd=a.path)
+        data["updated"] = git("log", "-1", "--format=%as", cwd=a.path)
         listings.append(data)
 
     out = {

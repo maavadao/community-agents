@@ -1,0 +1,46 @@
+# Every agent is its own repo, included here as a submodule. A submodule points at one commit, so
+# when an agent's repo moves on, this index keeps pointing at the old one. Once a day this moves
+# every agent to the latest commit on its default branch (skipping any whose latest commit fails
+# validation), refreshes the README's table, pushes, and republishes index.json.
+name: Update agents
+
+on:
+  schedule:
+    - cron: "17 3 * * *"  # daily, 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-agents
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - id: update
+        run: |
+          python scripts/update_agents.py "$RUNNER_TEMP/message"
+          if [ -f "$RUNNER_TEMP/message" ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.update.outputs.changed == 'true'
+        run: |
+          python scripts/build_readme.py
+          git add README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -F "$RUNNER_TEMP/message"
+          git push
+      - if: steps.update.outputs.changed == 'true'
+        run: gh workflow run publish.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}
